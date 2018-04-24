@@ -13,7 +13,6 @@ RUN yum clean all && \
         java-1.8.0-openjdk-devel nss_wrapper gettext tar git python curl" && \
     yum clean all && \
     yum install -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
-    rpm -V $INSTALL_PKGS && \
     yum clean all && \
     mkdir -p /var/lib/jenkins && \
     chown -R 1001:0 /var/lib/jenkins && \
