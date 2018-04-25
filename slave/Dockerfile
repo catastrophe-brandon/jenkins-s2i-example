@@ -18,7 +18,8 @@ RUN yum clean all && \
     chown -R 1001:0 /var/lib/jenkins && \
     chmod -R g+w /var/lib/jenkins && \
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
-    python get-pip.py 
+    python get-pip.py && \
+    pip install virtualenv 
 
 # Copy the entrypoint
 COPY configuration/* /var/lib/jenkins/
