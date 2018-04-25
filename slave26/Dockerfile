@@ -5,9 +5,9 @@ MAINTAINER Siamak Sadeghianfar <ssadeghi@redhat.com>
 
 # Install headless Java
 USER root
-RUN subscription-manager repos --disable rhel* 1>/dev/null && \
-    subscription-manager repos --enable rhel-6-server-rpms && \
-    subscription-manager repos --enable rhel-6-server-ose-3.2-rpms && \
+RUN yum-config-manager --disable * 1>/dev/null && \
+    yum-config-manager --enable rhel-6-server-rpms && \
+    yum-config-manager --enable rhel-6-server-ose-3.2-rpms && \
     yum clean all && \
     export INSTALL_PKGS="nss_wrapper java-1.8.0-openjdk-headless \
         java-1.8.0-openjdk-devel nss_wrapper gettext tar git python curl gcc python-devel \
