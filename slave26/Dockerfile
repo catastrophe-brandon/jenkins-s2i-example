@@ -5,7 +5,8 @@ MAINTAINER Siamak Sadeghianfar <ssadeghi@redhat.com>
 
 # Install headless Java
 USER root
-RUN yum-config-manager --disable * 1>/dev/null && \
+RUN yum clean all && \
+    yum-config-manager --disable rhel* 1>/dev/null && \
     yum-config-manager --enable rhel-6-server-rpms && \
     yum-config-manager --enable rhel-6-server-ose-3.2-rpms && \
     yum clean all && \
