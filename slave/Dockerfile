@@ -16,8 +16,9 @@ RUN yum clean all && \
     yum clean all && \
     mkdir -p /var/lib/jenkins && \
     chown -R 1001:0 /var/lib/jenkins && \
-    chmod -R g+w /var/lib/jenkins \
-    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python get-pip.py 
+    chmod -R g+w /var/lib/jenkins && \
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
+    python get-pip.py 
 
 # Copy the entrypoint
 COPY configuration/* /var/lib/jenkins/
