@@ -9,11 +9,12 @@ RUN yum clean all && \
     yum-config-manager --disable rhel* 1>/dev/null && \
     yum-config-manager --enable rhel-6-server-rpms && \
     yum-config-manager --enable rhel-6-server-ose-3.2-rpms && \
+    yum-config-manager --enable rhel-6-server-optional-rpms && \
     yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm && \
     yum clean all && \
     export INSTALL_PKGS="nss_wrapper java-1.8.0-openjdk-headless \
         java-1.8.0-openjdk-devel nss_wrapper gettext tar git python curl gcc python-devel \
-        unzip file python-pip libffi-devel" && \
+        unzip file python-pip libffi-devel libffi" && \
     yum install -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
     yum clean all && \
     mkdir -p /var/lib/jenkins && \
