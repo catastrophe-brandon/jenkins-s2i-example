@@ -8,16 +8,15 @@ USER root
 RUN yum-config-manager --disable rhel* 1>/dev/null && \
     yum-config-manager --enable rhel-7-server-rpms && \
     yum-config-manager --enable rhel-7-server-ose-3.2-rpms && \
+    yum-config-manager --enable rhel-7-optional-rpms && \
+    yum-config-manager --enable rhel-7-extras-rpms && \
+    yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
     yum clean all && \
     export INSTALL_PKGS="nss_wrapper java-1.8.0-openjdk-headless \
         java-1.8.0-openjdk-devel nss_wrapper gettext tar git curl gcc \
-        unzip file" && \
+        unzip file python36 python36-devel" && \
     yum install -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
-    yum groupinstall "Development Tools" && \
     yum clean all && \
-    wget https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tar.xz && \
-    tar xf Python-3.* && cd Python-3.* && \
-    ./configure && make && make install && \
     mkdir -p /var/lib/jenkins && \
     chown -R 1001:0 /var/lib/jenkins && \
     chmod -R g+w /var/lib/jenkins && \
