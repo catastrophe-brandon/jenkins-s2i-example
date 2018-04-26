@@ -10,7 +10,7 @@ RUN yum-config-manager --disable rhel* 1>/dev/null && \
     yum-config-manager --enable rhel-7-server-ose-3.2-rpms && \
     yum-config-manager --enable rhel-7-optional-rpms && \
     yum-config-manager --enable rhel-7-extras-rpms && \
-    yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
+    yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
     yum clean all && \
     export INSTALL_PKGS="nss_wrapper java-1.8.0-openjdk-headless \
         java-1.8.0-openjdk-devel nss_wrapper gettext tar git curl gcc \
