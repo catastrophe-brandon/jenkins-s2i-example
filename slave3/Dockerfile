@@ -5,6 +5,7 @@ MAINTAINER Siamak Sadeghianfar <ssadeghi@redhat.com>
 
 # Install headless Java
 USER root
+COPY requirements.txt ./
 RUN yum-config-manager --disable rhel* 1>/dev/null && \
     yum-config-manager --enable rhel-7-server-rpms && \
     yum-config-manager --enable rhel-7-server-ose-3.2-rpms && \
@@ -22,7 +23,7 @@ RUN yum-config-manager --disable rhel* 1>/dev/null && \
     chmod -R g+w /var/lib/jenkins && \
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python get-pip.py && \
-    pip install virtualenv 
+    pip install -r requirements.txt 
 
 # Copy the entrypoint
 COPY configuration/* /var/lib/jenkins/
