@@ -22,8 +22,8 @@ RUN yum-config-manager --disable rhel* 1>/dev/null && \
     chown -R 1001:0 /var/lib/jenkins && \
     chmod -R g+w /var/lib/jenkins && \
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
-    python get-pip.py && \
-    pip install -r requirements.txt 
+    /bin/python36 get-pip.py && \
+    /bin/python36 -m pip install -r requirements.txt 
 
 # Copy the entrypoint
 COPY configuration/* /var/lib/jenkins/
