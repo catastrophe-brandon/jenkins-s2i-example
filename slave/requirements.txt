@@ -15,3 +15,4 @@ wheel
 six
 ipython<6
 virtualenv
+setuptools>=18.5
