@@ -8,6 +8,7 @@ USER root
 RUN yum-config-manager --disable rhel* 1>/dev/null && \
     yum-config-manager --enable rhel-7-server-rpms && \
     yum-config-manager --enable rhel-7-server-ose-3.2-rpms && \
+    rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \ 
     export INSTALL_PKGS="nss_wrapper java-1.8.0-openjdk-headless \
         java-1.8.0-openjdk-devel nss_wrapper gettext tar git docker" && \
     yum install -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
