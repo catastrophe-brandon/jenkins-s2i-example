@@ -15,7 +15,7 @@ RUN yum-config-manager --disable rhel* 1>/dev/null && \
     yum clean all && \
     export INSTALL_PKGS="nss_wrapper java-1.8.0-openjdk-headless \
         java-1.8.0-openjdk-devel nss_wrapper gettext tar git curl gcc \
-        unzip file python36 python36-devel pandoc" && \
+        unzip file python36 python36-devel pandoc wget python3-pyOpenSSL PyYAML pyOpenSSL" && \
     yum install -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
     yum clean all && \
     mkdir -p /var/lib/jenkins && \
